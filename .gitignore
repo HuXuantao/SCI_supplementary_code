@@ -1,0 +1,36 @@
+```gitignore
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Environment and credentials
+.Renviron
+.Rprofile
+.env
+*token*
+*TOKEN*
+
+# Raw data and generated results
+/data/
+/results/
+*.rds
+*.RDS
+*.h5
+*.h5ad
+*.loom
+*.xlsx
+*.csv
+*.tsv
+*.txt.gz
+*.png
+*.jpg
+*.jpeg
+*.tiff
+*.pdf
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
