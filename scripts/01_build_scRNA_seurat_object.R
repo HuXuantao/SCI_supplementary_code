@@ -1,12 +1,3 @@
-# Build and integrate the five-condition SCI single-cell object from gene-level RNA counts.
-# Inputs are already quantified. Mouse gene symbols in the input are retained.
-#
-# Set SCI_SCRNA_INPUT to either a directory with one 10x GEX folder per condition
-# or the merged SCI_srt_clean.rds. For the merged RDS, set SCI_SCRNA_METADATA to
-# its cell metadata CSV, with columns 'barcode' and 'group'. The merge suffix
-# on a cell barcode is not used as a time-point label.
-# SCI_SCRNA_OUTPUT selects the directory for the three Seurat checkpoints.
-
 suppressPackageStartupMessages(library(Seurat))
 
 sample_ids <- c("Ctrl", "D1", "D3", "D6", "D10")
@@ -27,8 +18,6 @@ check_gene_ids <- function(ids) {
 }
 
 read_mouse_10x <- function(path) {
-  # Read10X uses column 2 for the supplied symbols. Check column 1 as well:
-  # symbols shared across species cannot identify the underlying reference.
   feature_file <- file.path(path, "genes.tsv")
   if (!file.exists(feature_file)) feature_file <- file.path(path, "features.tsv.gz")
   if (!file.exists(feature_file)) stop("No 10x features file in ", path)
